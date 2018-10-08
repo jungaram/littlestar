@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>night sky</title>
+</head>
+<style>
+body {background: url(./img/thenightsky.jpg);}
+
+#star{width: 3px;height: 3px; background:white; border-radius: 100%; 
+			position: absolute; animation: drop 3s infinite;}
+
+#star8bit{position: absolute; left: 300px; top:300px; width: 150px;
+	animation-play-state: paused;}
+
+#star9bit{position: absolute; left: 800px; top:600px; width: 100px;
+	animation: myMove5 1s infinite;}
+
+#ssttar{width: 50px; height: 50px; position: absolute; animation: myMove 5s infinite; z-index:12;}
+
+#sssttar{width: 50px; height: 50px; position: absolute; animation: myMove2 5s infinite; z-index:12;}
+
+#sssttarr{width: 50px; height: 50px; position: absolute; animation: myMove3 5s infinite; z-index:12;}
+
+#ssssttarr{width: 50px; height: 50px; position: absolute; animation: myMove4 5s infinite; z-index:12;}
+
+
+
+@keyframes myMove{
+		10%{position:absolute; left:70px; top:500px;}
+		30%{position:absolute; left:500px; top:100px;}
+		50%{position:absolute; left:1200px; top:400px;}
+		70%{position:absolute; left:1000px; top:50px;}
+		90%{position:absolute; left:0px; top:200px;}
+		90%{position:absolute; left:0px; top:0px;}
+
+}
+
+@keyframes myMove2{
+		10%{position:absolute; right:100px; bottom:800px;}
+		30%{position:absolute; right:500px; bottom:500px;}
+		50%{position:absolute; right:800px; bottom:280px;}
+		70%{position:absolute; right:1500px; bottom:50px;}
+		90%{position:absolute; right:0px; bottom:200px;}
+		90%{position:absolute; right:0px; bottom:0px;}
+
+
+}
+
+@keyframes myMove3{
+		from{margin-left: 0; margin-bottom: 0px; }
+		to{margin-left: 3000px; margin-top: 200px;}
+
+
+}
+
+@keyframes myMove4{
+		from{margin-left: 600px; margin-bottom: 0px; }
+		to{margin-left: 50px; margin-top: 5000px;}
+}
+
+@keyframes myMove5 {
+    		from {margin-top: 0px;}
+ 			to {margin-top: 0px; transform: rotateY(360deg) }
+
+
+
+}
+
+
+@keyframes drop {
+				from{margin-left: 0;}
+				to{margin-left: 500px;}
+			}
+	}
+
+
+</style>
+<body>
+	<div id="star"></div>
+	<img src="./img/starretro.png" id="ssttar">
+	<img src="./img/starretro.png" id="sssttar">
+	<img src="./img/starretro.png" id="sssttarr">
+	<img src="./img/starretro.png" id="ssssttarr">
+	<img src="./img/8bitstar.png" id="star8bit">
+	<img src="./img/8bitstar.png" id="star9bit">
+
+<audio id="starSound">
+<source src="./img/8bit little star.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="starSound2">
+<source src="./img/sample3.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="starSound3">
+<source src="./img/C7Z07.mp3" type="audio/mpeg">
+</audio>
+
+
+<script type="text/javascript">
+       ssttar.onmouseover = function(){
+           ssttar.style.cursor = "pointer";
+            }
+
+       sssttar.onmouseover = function(){
+           sssttar.style.cursor = "pointer";
+            }
+
+       star8bit.onmouseover = function(){
+           star8bit.style.cursor = "pointer";
+            }
+
+       star9bit.onmouseover = function(){
+           star9bit.style.cursor = "pointer";
+            }
+
+
+
+
+
+         var toggle1 = "off";
+		ssttar.onclick = function(){
+			if(toggle1=="off")
+			{	
+				toggle1="on";
+				starSound.play();
+			}
+			else
+			{
+				toggle1="off"
+				starSound.pause();
+			}
+		}
+
+		 var toggle2 = "off";
+		star8bit.onclick = function(){
+			if(toggle2=="off")
+			{	
+				toggle2="on";
+				starSound2.play();
+			}
+			else
+			{
+				toggle2="off"
+				starSound2.pause();
+			}
+		}
+
+		var toggle3 = "off";
+		star8bit.onclick = function(){
+			if(toggle3=="off")
+			{	
+				toggle3="on";
+				starSound3.play();
+			}
+			else
+			{
+				toggle3="off"
+				starSound3.pause();
+			}
+		}
+
+
+		var toggle4 = "off";
+		star9bit.onclick = function(){
+			if(toggle4=="off")
+			{	
+				toggle4="on";
+				starSound2.play();
+			}
+			else
+			{
+				toggle4="off"
+				starSound2.pause();
+			}
+		}
+        
+
+
+
+	var total = 0;
+		for (var i = 0; i < 50; i++) {
+			var j = document.getElementById("star")
+			var news = j.cloneNode(true);
+			news.style.left = Math.random()*window.innerWidth + "px";
+			news.style.top = Math.random()*window.innerHeight + "px";
+			news.style.animationDuration = Math.random()+"s";
+			news.style.background = randomColor();
+			document.body.appendChild(news);
+
+			function randomColor(){
+				var a = Math.random()*105;
+				var b = Math.random()*155;
+				var c = Math.random()*255;
+				var text = "rgb("+a+","+b+","+c+")";
+				return text;
+
+
+			}
+		}
+
+		//var v = setInterval(function() {console.log("reloaded!"); location.reload();},5000);
+	
+
+
+
+
+
+</script>
+
+</body>
+</html>
